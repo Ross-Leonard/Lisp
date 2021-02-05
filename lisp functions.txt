@@ -1,0 +1,36 @@
+(setq l'(5 8 -7 23 14 -2 -13)
+(defun addl(l)
+	(cond((null l) 0)
+		(t (+(car l)(addl (cdr l)))
+		)
+	)
+)
+
+
+(setq poslist(posnums(l)))
+(defun posnums(l)
+	(cond ((null l) 0)
+	      ((>= car l) 0) (cons (car l)poslist(cdr l))))
+		  (t (poslist(cdr l)))
+	)
+)
+
+(setq neglist(negnums(l)))
+(defun negnums(l)
+	(cond ((null l) 0)
+	      ((< car l) 0) (cons (car l) neglist(cdr l))))
+		  (t (neglist(cdr l)))
+	)
+)
+		  
+
+(defun countnum(l)
+	(cond ((null l) 0)
+	(t (+ 1(countnum(cdr l)))
+	)
+)
+
+(/ (addl l)(countnum l))
+
+(/ (addl poslist)(countnum poslist))
+(/ (addl neglist)(countnum neglist))
